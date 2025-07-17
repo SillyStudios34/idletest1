@@ -31,7 +31,7 @@ function upg1n1() {
         wCredit -= upgPr;
         wPerS += 5;
         upgPr = Math.floor(upgPr * 1.5);
-        console.log(upgPr);
+        console.log(`price is now ${upgPr}`);
         saveDat();
         updateUI();
     }
@@ -45,7 +45,7 @@ function upg1e1() {
     if (expoIn = true) {
         expo = setInterval (() => {
             wPerS *= 1.02;
-            saveDat()
+            updateUI();
             console.log("expo is true")
         }, 4000);
     }
@@ -60,6 +60,7 @@ function convertWCr() {
         wCredit -= asideUnlock;
         wAsidePerS = 0.5;
         wAsideVar = true;
+        asideUnlock = Infinity;
         console.log("second income unlocked");
         saveDat();
     }
@@ -68,19 +69,20 @@ function convertWCr() {
         wAsideVar = null;
     }
 }
-if (wAsideVar = true) {
+if (!wAsideVar) {
     secondVar = setInterval (() => {
         wAsideCredit += wAsidePerS;
         saveDat();
     }, 350);
 }
-if (wAsideVar = true);
-console.log("already bought");
+if (!wAsideVar);
+console.log("already bought(wAsideVar)");
 
 function getKAside() {
     if (wCredit >= 50000) {
         wCredit = 0;
         wPerS = 1;
+        upgPr = 130;
         wAsideCredit += 10000;
         expoIn = null;
         clearInterval(expo);
