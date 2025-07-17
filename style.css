@@ -1,0 +1,16 @@
+* {
+    background-color: rgb(50, 50, 50);
+    color: aliceblue;
+}
+h1 {
+    text-align: center;
+}
+article {
+    display: grid;
+    grid-template-columns: 27% 27%;
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
