@@ -7,7 +7,7 @@ h1 {
 }
 article {
     display: grid;
-    grid-template-columns: 27% 27%;
+    grid-template-columns: 26% 26%;
     section {
         display: flex;
         flex-direction: column;
