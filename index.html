@@ -8,27 +8,47 @@
 <body>
     <h1>the</h1>
     <article>
-        <section id="wmicro">
-            <span id="span1">--</span>
+        <section id="c's">
+            <div>
+                <p>c</p>
+                <span id="span1">--</span>
+            </div>
             <button onclick="gameSt()">the start</button>
             <p>start gaining credits passively</p><br>
             <button onclick="upg1n1()">Mult</button>
-            <p>increase amount gained</p>
-            <p>price increases *1.5</p><br>
+            <p>increase amount gained +5</p>
+            <p>price increases *1.5 (base 130)</p><br>
             <button onclick="upg1e1()">Self boost (600)</button>
-            <p>credits boost itself</p><br>
+            <p>credits boost itself</p>
+            <p>(reload page if nothing happens)</p><br>
+            <button onclick="expoPush()">exponential (1e24)</button>
+            <p>increase overall gain (can be stacked)</p>
             <script src="code.js"></script>
         </section>
         <section id="wCrInit">
-            <span id="span2">--</span>
+            <div>
+                <p>micro credits</p>
+                <span id="span2">--</span>
+            </div>
             <button onclick="convertWCr()">recreate (17000)</button>
-            <p>convert credits into a second income</p>
+            <p>convert credits into a second income</p><br>
             <button onclick="getKAside()">reformat (50000)</button>
-            <p>reset credits, but get 10k</p>
+            <p>reset credits and upgrade value, but get 1k</p><br>
+            <button onclick="wAsidePerSNew()">restructure (10M)</button>
+            <p>increase micro gain to 15</p><br>
+            <button onclick="upg1e2()">remult (2500 micro)</button>
+            <p>increase amount gained *30.5</p><br>
         </section>
-        <section id="testreset">
-            <button onclick="formattAll()">reset everything</button>
+        <section>
+            <div>
+                <p>infinities</p>
+                <span id="span3">==</span>
+            </div>
+            <button onclick="infVal()">compress (inf)</button>
         </section>
     </article>
+    <section id="testreset">
+        <button onclick="formattAll()">reset everything (test only)</button>
+    </section>
 </body>
 </html>
