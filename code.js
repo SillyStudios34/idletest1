@@ -1,4 +1,5 @@
 // section of values n stuff
+const counterDisplay =  parseInt(localStorage.getItem("time")) || 0;
 let wCredit = parseInt(localStorage.getItem("wCredit")) || 0;
 let wPerS = parseInt(localStorage.getItem("wPerS")) || 1;
 let upgPr = parseInt(localStorage.getItem("upg1")) || 130;
@@ -16,8 +17,7 @@ let wAsideMult = 2500;
 let secondVar;
 //infs
 let infs = parseInt(localStorage.getItem("infs")) || 0;
-// start this shi
-// also upgrades part 1
+// start this gaem
 function gameSt() {
     if (!gamerun) {
         gamerun = true;
@@ -31,6 +31,22 @@ function gameSt() {
     console.log(`upgrade 1 price is ${upgPr}`)
     }
 }
+window.addEventListener('load', () => {
+      let secondsPassed = 0;
+      const counterDisplay = document.getElementById("timetick");    
+      setInterval(() => {
+        secondsPassed++;
+
+        const days = Math.floor(secondsPassed / (60 * 60 * 24));
+        const hours = Math.floor((secondsPassed % (60 * 60 * 24)) / (60 * 60));
+        const minutes = Math.floor((secondsPassed % (60 * 60)) / 60);
+        const seconds = secondsPassed % 60;
+
+        const formattedTime = `${days}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        counterDisplay.textContent = formattedTime;
+      }, 1000);
+});
+// also upgrades part 1
 function upg1n1() {
     if (wCredit >= upgPr) {
         wCredit -= upgPr;
@@ -53,12 +69,17 @@ function upg1e1() {
         upgPr3 = 600;
     }
 }
-if (!expoIn) {
-    expo = setInterval (() => {
-        wPerS *= 1.04;
-        updateUI();
-        console.log("expo is true")
-    }, 4000);
+switch (upg1e1) {
+    case (expoIn = true):
+        expo = setInterval (() => {
+            wPerS *= 1.04;
+            updateUI();
+            console.log("expo is true")
+        }, 4000);        
+        break;
+    default:
+        console.log("expo is false")
+        break;
 }
 function expoPush() {
     if (wCredit >= upgExpo)
@@ -161,6 +182,7 @@ function updateUI(){
 }
 // save useless count
 function saveDat() {
+    localStorage.setItem("time", counterDisplay);
     localStorage.setItem("gamerun", gamerun);
     localStorage.setItem("wCredit", wCredit);
     localStorage.setItem("wPerS", wPerS);

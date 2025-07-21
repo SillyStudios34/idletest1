@@ -2,6 +2,9 @@
 boredom, bitch
 
 changelog:
+21/7-2025
+· total time stat added
+
 18/7-2025 = infinities update
 + added an "Infinities" value if credits hit limit and other fixations
 + reset test button actually works
