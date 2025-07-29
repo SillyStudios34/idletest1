@@ -4,10 +4,16 @@
     <meta charset="UTF-8"/>
     <title>title</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="" type="image/x-icon">
 </head>
 <body>
     <h1>the</h1>
-    <p>time wasted so far: <span id="timetick">0:00:00:00</span></p>
+    <p>time wasted so far in this session: <span id="timetick">0:00:00:00</span><br><br></p>
+    <article class="tickcontain">
+        <section class="ticksect">
+            <span class="tickertext" id="tickerspan"></span>
+        </section>
+    </article>
     <article>
         <section id="c's">
             <div>
@@ -24,7 +30,6 @@
             <p>(reload page if nothing happens)</p><br>
             <button onclick="expoPush()">exponential (1e24)</button>
             <p>increase overall gain (can be stacked)</p>
-            <script src="code.js"></script>
         </section>
         <section id="wCrInit">
             <div>
@@ -52,5 +57,6 @@
     <section id="testreset">
         <button onclick="formattAll()">reset everything (test only)</button>
     </section>
+    <script src="code.js"></script>
 </body>
 </html>

@@ -17,3 +17,37 @@ article {
         }
     }
 }
+.tickcontain {
+  width: 100%;
+  overflow: hidden;
+  background: #222;
+  color: white;
+  white-space: nowrap;
+  border: 2px solid #555;
+  padding: 5px 0;
+  position: relative;
+  font-family: sans-serif;
+  height: 40px;
+}
+
+.ticksect {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.ticksect span {
+  display: inline-block;
+  padding: 0 100%;
+  font-size: 1.2rem;
+  animation: scroll-left 15s linear forwards;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(170%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

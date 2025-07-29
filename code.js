@@ -68,18 +68,18 @@ function upg1e1() {
         expoIn = false;
         upgPr3 = 600;
     }
-}
-switch (upg1e1) {
-    case (expoIn = true):
-        expo = setInterval (() => {
-            wPerS *= 1.04;
-            updateUI();
-            console.log("expo is true")
-        }, 4000);        
-        break;
-    default:
-        console.log("expo is false")
-        break;
+    switch (upg1e1) {
+        case (expoIn = true):
+            expo = setInterval (() => {
+                wPerS *= 1.04;
+                updateUI();
+                console.log("expo is true")
+            }, 4000);        
+            break;
+        default:
+            console.log("expo is false")
+            break;
+    }
 }
 function expoPush() {
     if (wCredit >= upgExpo)
@@ -156,6 +156,32 @@ function infVal() {
         updateUI();
     }
 }
+// random text for attention span
+let tickerDisp = document.getElementById("tickerspan")
+const textDisplay = [
+"hello, your computer has virus",
+"we dont have news for now, come back in 34 minutes",
+"wowzers",
+"so, just looking at numbers? nice.",
+"1/30 Silly Studios members think this is cool, that one is me",
+"so, what's this about anyways?",
+":]",
+"🚄🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃"
+]
+showRandomHeadline();
+setInterval(showRandomHeadline, 16500);
+function showRandomHeadline() {
+    const newSpan = tickerDisp.cloneNode(true);
+    const randomText = textDisplay[Math.floor(Math.random() * textDisplay.length)];
+    newSpan.textContent = randomText;
+
+    newSpan.style.animation = "none";
+    void newSpan.offsetWidth;
+    newSpan.style.animation = "scroll-left 15s linear forwards";
+
+    tickerDisp.parentNode.replaceChild(newSpan, tickerDisp);
+    tickerDisp = newSpan;
+}
 //format function (test only)
 function formattAll() {
     localStorage.clear();
@@ -182,7 +208,6 @@ function updateUI(){
 }
 // save useless count
 function saveDat() {
-    localStorage.setItem("time", counterDisplay);
     localStorage.setItem("gamerun", gamerun);
     localStorage.setItem("wCredit", wCredit);
     localStorage.setItem("wPerS", wPerS);

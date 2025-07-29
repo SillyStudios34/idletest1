@@ -2,8 +2,12 @@
 boredom, bitch
 
 changelog:
+29/7-2025
++ added quotes ticker for your fuckin attention span
++ expo upgrade is broken yaaaay
+
 21/7-2025
-· total time stat added
++ total time stat added
 
 18/7-2025 = infinities update
 + added an "Infinities" value if credits hit limit and other fixations
