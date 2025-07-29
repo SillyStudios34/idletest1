@@ -14,6 +14,7 @@ article {
         align-items: center;
         div {
             font-family: monospace;
+            text-align: center;
         }
     }
 }
@@ -28,12 +29,16 @@ article {
   position: relative;
   font-family: sans-serif;
   height: 40px;
+  span {
+    background-color: transparent;
+  }
 }
 
 .ticksect {
   display: inline-block;
   white-space: nowrap;
   will-change: transform;
+  background-color: transparent;
 }
 
 .ticksect span {

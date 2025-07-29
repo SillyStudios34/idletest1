@@ -2,6 +2,8 @@
 boredom, bitch
 
 changelog:
+(literally 5 minutes later):
+
 29/7-2025
 + added quotes ticker for your fuckin attention span
 + expo upgrade is broken yaaaay

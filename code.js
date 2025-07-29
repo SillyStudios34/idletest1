@@ -62,32 +62,25 @@ function upg1e1() {
         wCredit -= upgPr3;
         expoIn = true;
         upgPr3 = NaN;
+        expo = setInterval (() => {
+            wPerS *= 1.04;
+            updateUI();
+            console.log("expo is true")
+        }, 4000);        
         console.log("expo bought");
-    }
-    else {
+    } else if (wCredit < upgPr3) {
         expoIn = false;
         upgPr3 = 600;
     }
-    switch (upg1e1) {
-        case (expoIn = true):
-            expo = setInterval (() => {
-                wPerS *= 1.04;
-                updateUI();
-                console.log("expo is true")
-            }, 4000);        
-            break;
-        default:
-            console.log("expo is false")
-            break;
-    }
 }
 function expoPush() {
-    if (wCredit >= upgExpo)
+    if (wCredit >= upgExpo) {
         wCredit -= upgExpo;
         wAsidePerS += 25;
         wPerS *= 300;
         saveDat();
         updateUI();
+    }
 }
 // section 2 upgrades
 let asideUnlock = 17000;
@@ -98,21 +91,20 @@ function convertWCr() {
         wAsideVar = true;
         asideUnlock = Infinity;
         console.log("second income unlocked");
+        secondVar = setInterval (() => {
+            wAsideCredit += wAsidePerS;
+            saveDat();
+        }, 350);
         saveDat();
     }
-    else {
+    else if (wAsideVar = true) {
+        console.log("already bought(wAsideVar)");
+    }
+    else if (wCredit < asideUnlock) {
         console.log("not enough");
         wAsideVar = null;
     }
 }
-if (!wAsideVar) {
-    secondVar = setInterval (() => {
-        wAsideCredit += wAsidePerS;
-        saveDat();
-    }, 350);
-}
-if (!wAsideVar);
-console.log("already bought(wAsideVar)");
 
 function getKAside() {
     if (wCredit >= 50000) {
@@ -121,16 +113,20 @@ function getKAside() {
         upgPr = 130;
         wAsideCredit += 1000;
         expoIn = false;
+        upgPr3 = 600;
         clearInterval(expo);
+        console.log("yes")
     }
 }
 function wAsidePerSNew() {
-    if (wAsideCredit >= 10000000)
-        wCredit -= 10000000
+    if (wCredit >= 10000000) {
+        wCredit -= 10000000;
         wAsidePerS = 15;
         console.log("upg perS bought");
         saveDat();
-    
+    } else if (wAsidePerS === 15) {
+        console.log("wpg already bought");
+    }
 }
 
 function upg1e2() {
@@ -139,6 +135,8 @@ function upg1e2() {
         wPerS *= 30.5;
         console.log("expo 2 bought");
         saveDat();
+    } else if (wAsideCredit < wAsideMult) {
+        console.log("bruh");
     }
 }
 // infinities (aka, section third)
@@ -151,9 +149,12 @@ function infVal() {
         expoIn = false;
         upgPr = 130;
         wPerS = 1;
+        wAsideCredit = wAsideCredit / 70;
         clearInterval();
         saveDat()
         updateUI();
+    } else if (wCredit < Infinity) {
+        console.log("youre not enough")
     }
 }
 // random text for attention span
@@ -163,10 +164,12 @@ const textDisplay = [
 "we dont have news for now, come back in 34 minutes",
 "wowzers",
 "so, just looking at numbers? nice.",
-"1/30 Silly Studios members think this is cool, that one is me",
+// "1/30 Silly Studios members think this is cool, that one is me",
 "so, what's this about anyways?",
 ":]",
-"🚄🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃"
+"if it runs MsPaint, you should be good",
+"🚄🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃",
+"TypeScript sucks, it threw me 41 errors in this code"
 ]
 showRandomHeadline();
 setInterval(showRandomHeadline, 16500);
@@ -176,7 +179,7 @@ function showRandomHeadline() {
     newSpan.textContent = randomText;
 
     newSpan.style.animation = "none";
-    void newSpan.offsetWidth;
+    newSpan.offsetWidth;
     newSpan.style.animation = "scroll-left 15s linear forwards";
 
     tickerDisp.parentNode.replaceChild(newSpan, tickerDisp);
